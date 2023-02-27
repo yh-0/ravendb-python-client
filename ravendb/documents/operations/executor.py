@@ -25,7 +25,7 @@ if TYPE_CHECKING:
 
 
 _T = TypeVar("_T")
-_Operation_T = TypeVar("_Operation_T")
+_Operation_Return_Type = TypeVar("_Operation_Return_Type")
 
 
 class OperationExecutor:
@@ -136,8 +136,8 @@ class MaintenanceOperationExecutor:
         return MaintenanceOperationExecutor(self._store, database_name)
 
     def send(
-        self, operation: Union[VoidMaintenanceOperation, MaintenanceOperation[_Operation_T]]
-    ) -> Optional[_Operation_T]:
+        self, operation: Union[VoidMaintenanceOperation, MaintenanceOperation[_Operation_Return_Type]]
+    ) -> Optional[_Operation_Return_Type]:
         self._assert_database_name_set()
         command = operation.get_command(self.request_executor.conventions)
         self.request_executor.execute_command(command)
