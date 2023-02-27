@@ -8,7 +8,7 @@ import json
 import os
 import time
 import uuid
-from typing import Union, Callable, TYPE_CHECKING, Optional, Dict, List, Type, TypeVar, Tuple, Generic, Set
+from typing import Union, Callable, TYPE_CHECKING, Optional, Dict, List, Type, TypeVar, Iterable, Tuple, Generic, Set
 
 from ravendb.documents.session.document_session_revisions import DocumentSessionRevisions
 from ravendb.primitives import constants
